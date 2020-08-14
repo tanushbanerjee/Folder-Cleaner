@@ -4,6 +4,10 @@ def createNotExists(folder):
     if not os.path.exists(folder):
         os.makedirs(folder)
 
+def move(folderName, files):
+    for file in files:
+        os.replace(file, f"{folderName}/{file}")
+
 
 files = os.listdir()
 files.remove('main.py')
@@ -30,6 +34,9 @@ for file in files:
         others.append(file)
 
 print(others)
-for media in medias:
-    os.replace(media, f"Media/{media}")
 
+
+move("Media", medias)
+move("Docs", docs)
+move("Images", images)
+move("Other", others)
