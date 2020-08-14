@@ -6,6 +6,7 @@ def createNotExists(folder):
 
 
 files = os.listdir()
+files.remove('main.py')
 print(files)
 
 createNotExists('Images')
