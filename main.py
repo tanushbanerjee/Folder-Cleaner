@@ -21,6 +21,15 @@ docsExts = [".txt", ".docx", ".doc", ".pdf", ".odt"]
 docs = [files for file in files if os.path.splitext(file)[1].lower() in docsExts]
 
 mediaExts = [".mp4", ".mp3", ".mkv", ".flv"]
-media = [files for file in files if os.path.splitext(file)[1].lower() in mediaExts]
+medias = [files for file in files if os.path.splitext(file)[1].lower() in mediaExts]
 
+others = []
+for file in files:
+    ext = os.path.splitext(file)[1].lower()
+    if (ext not in mediaExts) and (ext not in docsExts) and (ext not in imgExts) and os.path.isfile(file):
+        others.append(file)
+
+print(others)
+for media in medias:
+    os.replace(media, f"Media/{media}")
 
